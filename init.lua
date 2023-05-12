@@ -66,49 +66,46 @@ require("lazy").setup({
         event = "BufRead",
     },
     { -- show and remove trailing whitespaces
-    'jdhao/whitespace.nvim',
-    event = "BufRead",
-},
-{ -- directory viewer
-'nvim-tree/nvim-tree.lua',
-init = function()
-    -- disable netrw at the very start of your init.lua (strongly advised)
-    -- reference: https://github.com/nvim-tree/nvim-tree.lua
-    vim.g.loaded_netrw = 1
-    vim.g.loaded_netrwPlugin = 1
-end,
-lazy = true,
-config = true,
+        'jdhao/whitespace.nvim',
+        event = "BufRead",
+    },
+    { -- directory viewer
+        'nvim-tree/nvim-tree.lua',
+        init = function()
+            -- disable netrw at the very start of your init.lua (strongly advised)
+            -- reference: https://github.com/nvim-tree/nvim-tree.lua
+            vim.g.loaded_netrw = 1
+            vim.g.loaded_netrwPlugin = 1
+        end,
+        lazy = true,
+        config = true,
     },
     { -- show keymap
-    -- TODO: edit defaults
-    'folke/which-key.nvim',
-    lazy = true,
-    config = function()
-        vim.o.timeout = true
-        vim.o.timeoutlen = 300
-        require("which-key").setup()
-    end,
-},
-{ -- fancy tab line
-'akinsho/bufferline.nvim',
-version = 'v3.*',
-config = function()
-    require('bufferline').setup({
-        options = {
-            separator_style = 'thick',
-            show_close_icon = false
-        },
-    })
-end,
+        -- TODO: edit defaults
+        'folke/which-key.nvim',
+        lazy = true,
+        config = function()
+            vim.o.timeout = true
+            vim.o.timeoutlen = 300
+            require("which-key").setup()
+        end,
+    },
+    { -- fancy tab line
+        'akinsho/bufferline.nvim',
+        version = 'v3.*',
+        config = function()
+            require('bufferline').setup({
+                options = {
+                    separator_style = 'thick',
+                    show_close_icon = false
+                },
+            })
+        end,
     },
     { -- indent guide
-    "lukas-reineke/indent-blankline.nvim",
-    event = "BufRead",
-},
-
-
-
+        "lukas-reineke/indent-blankline.nvim",
+        event = "BufRead",
+    },
 })
 
 local wk = require("which-key")
@@ -205,15 +202,15 @@ wk.register({
 
 
 vim.keymap.set(
-    'n', '(', function()
-        vim.cmd('BufferLineCyclePrev')
-    end, { desc = 'Previous buffer' }
+'n', '(', function()
+    vim.cmd('BufferLineCyclePrev')
+end, { desc = 'Previous buffer' }
 )
 
 vim.keymap.set(
-    'n', ')', function()
-        vim.cmd('BufferLineCycleNext')
-    end, { desc = 'Next buffer' }
+'n', ')', function()
+    vim.cmd('BufferLineCycleNext')
+end, { desc = 'Next buffer' }
 )
 
 -- UI related
